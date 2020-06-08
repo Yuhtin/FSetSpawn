@@ -1,0 +1,120 @@
+#####################################################################################################
+#   ______   ______     ______     ______   ______     ______   ______     __     __     __   __    #
+#  /\  ___\ /\  ___\   /\  ___\   /\__  _\ /\  ___\   /\  == \ /\  __ \   /\ \  _ \ \   /\ "-.\ \   #
+#  \ \  __\ \ \___  \  \ \  __\   \/_/\ \/ \ \___  \  \ \  _-/ \ \  __ \  \ \ \/ ".\ \  \ \ \-.  \  #
+#  \ \_\    \/\_____\  \ \_____\    \ \_\  \/\_____\  \ \_\    \ \_\ \_\  \ \__/".~\_\  \ \_\\"\_\  #
+#  \/_/     \/_____/   \/_____/     \/_/   \/_____/   \/_/     \/_/\/_/   \/_/   \/_/   \/_/ \/_/   #
+#                                            Version 0.1-BETA                                       #
+#                                               By: Yuhtin                                          #
+#####################################################################################################
+
+# Database do plugin
+Database:
+  # SQLITE ou MySQL
+  # Caso escolha o tipo MySQL, você deverá mudar os dados de conexão para os de sua hospedagem
+  Type: SQLITE
+  Host: 'localhost'
+  Port: 3306
+  User: 'root'
+  Password: '1234'
+  Database: 'root'
+
+
+# Tamanho do menu de setspawn, você pode diminuir dependendo do número de spawners em seu servidor
+Menu: 36
+
+# Ative/desative um spawner do sistema e menu.
+Mobs:
+  CREEPER:
+    Ativar: true
+    Slot: 0
+  SKELETON:
+    Ativar: true
+    Slot: 1
+  SPIDER:
+    Ativar: true
+    Slot: 2
+  ZOMBIE:
+    Ativar: true
+    Slot: 3
+  SLIME:
+    Ativar: true
+    Slot: 4
+  GHAST:
+    Ativar: true
+    Slot: 5
+  PIG_ZOMBIE:
+    Ativar: true
+    Slot: 6
+  ENDERMAN:
+    Ativar: true
+    Slot: 7
+  CAVE_SPIDER:
+    Ativar: true
+    Slot: 8
+  BLAZE:
+    Ativar: true
+    Slot: 9
+  MAGMA_CUBE:
+    Ativar: true
+    Slot: 10
+  WITHER:
+    Ativar: true
+    Slot: 11
+  PIG:
+    Ativar: true
+    Slot: 12
+  SHEEP:
+    Ativar: true
+    Slot: 13
+  COW:
+    Ativar: true
+    Slot: 14
+  CHICKEN:
+    Ativar: true
+    Slot: 15
+  SQUID:
+    Ativar: true
+    Slot: 16
+  MUSHROOM_COW:
+    Ativar: true
+    Slot: 17
+  OCELOT:
+    Ativar: true
+    Slot: 18
+  IRON_GOLEM:
+    Ativar: true
+    Slot: 19
+  VILLAGER:
+    Ativar: true
+    Slot: 20
+  ENDERMITE:
+    Ativar: true
+    Slot: 21
+  RABBIT:
+    Ativar: true
+    Slot: 22
+  WITCH:
+    Ativar: true
+    Slot: 23
+  WOLF:
+    Ativar: true
+    Slot: 24
+  BAT:
+    Ativar: true
+    Slot: 25
+  GUARDIAN:
+    Ativar: true
+    Slot: 26
+  ENDER_DRAGON:
+    Ativar: true
+    Slot: 27
+  SNOWMAN:
+    Ativar: true
+    Slot: 28
+  SILVERFISH:
+    Ativar: true
+    Slot: 29
+  HORSE:
+    Ativar: true
+    Slot: 30

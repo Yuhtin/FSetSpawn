@@ -1,0 +1,7 @@
+name: yhFSetSpawn
+author: Yuhtin
+version: '0.1-BETA'
+main: com.yuhtin.fsetspawn.YhFSetSpawn
+description: Setar a posicao de spawn de um spawner
+depend: [Factions, MassiveCore]
+website: https://github.com/Yuhtin/yhFSetSpawn
