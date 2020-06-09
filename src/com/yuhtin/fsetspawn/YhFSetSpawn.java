@@ -50,14 +50,14 @@ public class YhFSetSpawn extends JavaPlugin {
 
     private boolean loadData() {
         if (getConfig().getString("Database.Type").equalsIgnoreCase("MySQL"))
-            data = new MySQL(getConfig().getString("Database.Host"),
+            data = new MySQL(null, getConfig().getString("Database.Host"),
                     getConfig().getString("Database.User"),
                     getConfig().getString("Database.Password"),
                     getConfig().getString("Database.Database"),
                     getConfig().getInt("Database.Port"));
         else data = new SQLite();
 
-        if (!data.createTable()) {
+        if (!data.openConnection()) {
             System.out.println("Não foi possível criar a tabela do plugin");
             System.out.println("Desligando o plugin");
             return false;

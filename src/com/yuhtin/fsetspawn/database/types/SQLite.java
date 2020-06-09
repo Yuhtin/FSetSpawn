@@ -9,7 +9,7 @@ public class SQLite implements Data {
 
 
     @Override
-    public boolean createTable() {
+    public boolean openConnection() {
 
         return false;
     }
