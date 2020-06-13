@@ -1,31 +1,24 @@
 package com.yuhtin.fsetspawn.database.types;
 
-import com.yuhtin.fsetspawn.dao.controller.SpawnerController;
 import com.yuhtin.fsetspawn.database.Data;
 
-import java.util.List;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class SQLite implements Data {
 
 
     @Override
-    public boolean openConnection() {
-
-        return false;
-    }
-
-    @Override
-    public List<SpawnerController> loadLocations() {
-        return null;
-    }
-
-    @Override
-    public void save(SpawnerController controller) {
-
-    }
-
-    @Override
-    public void close() {
-
+    public Connection openConnection() {
+        File file = new File("accounts.db");
+        String URL = "jdbc:sqlite:" + file;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            return DriverManager.getConnection(URL);
+        } catch (Exception e) {
+            System.out.println("Conexao com o SQLite falhou");
+            return null;
+        }
     }
 }

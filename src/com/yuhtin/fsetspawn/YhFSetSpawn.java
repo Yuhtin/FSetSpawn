@@ -1,7 +1,8 @@
 package com.yuhtin.fsetspawn;
 
-import com.yuhtin.fsetspawn.dao.FactionSpawnerDAO;
+import com.yuhtin.fsetspawn.core.controller.SpawnerController;
 import com.yuhtin.fsetspawn.database.Data;
+import com.yuhtin.fsetspawn.database.Database;
 import com.yuhtin.fsetspawn.database.types.MySQL;
 import com.yuhtin.fsetspawn.database.types.SQLite;
 import com.yuhtin.fsetspawn.enums.SpawnerType;
@@ -18,7 +19,7 @@ public class YhFSetSpawn extends JavaPlugin {
 
     public static final HashMap<Integer, SpawnerType> spawners = new HashMap<>();
     public static int menuSize;
-    public static Data data;
+    public static Database database;
 
     @Override
     public void onEnable() {
@@ -44,26 +45,27 @@ public class YhFSetSpawn extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        FactionSpawnerDAO.factions.forEach((tag, controller) -> data.save(controller));
-        data.close();
+        database.close();
     }
 
     private boolean loadData() {
+        Data data;
         if (getConfig().getString("Database.Type").equalsIgnoreCase("MySQL"))
-            data = new MySQL(null, getConfig().getString("Database.Host"),
+            data = new MySQL(getConfig().getString("Database.Host"),
                     getConfig().getString("Database.User"),
                     getConfig().getString("Database.Password"),
                     getConfig().getString("Database.Database"),
                     getConfig().getInt("Database.Port"));
         else data = new SQLite();
 
-        if (!data.openConnection()) {
+        database = new Database(data, "yhFSetSpawn");
+        if (!database.createTable()) {
             System.out.println("Não foi possível criar a tabela do plugin");
             System.out.println("Desligando o plugin");
             return false;
         }
 
-        data.loadLocations().forEach(FactionSpawnerDAO::addFaction);
+        database.loadLocations();
         System.out.println("Todas as localizações foram carregadas com sucesso");
 
         return true;

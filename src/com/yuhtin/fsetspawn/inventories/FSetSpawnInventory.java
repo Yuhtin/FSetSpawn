@@ -1,7 +1,7 @@
 package com.yuhtin.fsetspawn.inventories;
 
 import com.yuhtin.fsetspawn.YhFSetSpawn;
-import com.yuhtin.fsetspawn.dao.FactionSpawnerDAO;
+import com.yuhtin.fsetspawn.core.controller.SpawnerController;
 import com.yuhtin.fsetspawn.utils.builders.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -19,6 +19,6 @@ public class FSetSpawnInventory {
 
     public static void open(Player player, String tag) {
         player.openInventory(inventory);
-        FactionSpawnerDAO.editing.put(player.getName(), tag);
+        SpawnerController.editing.put(player.getName(), tag);
     }
 }

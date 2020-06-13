@@ -5,7 +5,7 @@ import com.massivecraft.factions.entity.BoardColl;
 import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.entity.MPlayer;
 import com.massivecraft.massivecore.ps.PS;
-import com.yuhtin.fsetspawn.dao.FactionSpawnerDAO;
+import com.yuhtin.fsetspawn.core.controller.SpawnerController;
 import com.yuhtin.fsetspawn.inventories.FSetSpawnInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -38,8 +38,8 @@ public class FSetSpawnCommand implements Listener {
                 return;
             }
 
-            if (!FactionSpawnerDAO.factions.containsKey(faction.getTag()))
-                FactionSpawnerDAO.create(faction.getTag());
+            if (!SpawnerController.factions.containsKey(faction.getTag()))
+                SpawnerController.create(faction.getTag());
 
             FSetSpawnInventory.open(player, faction.getTag());
         }

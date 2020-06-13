@@ -1,7 +1,7 @@
 package com.yuhtin.fsetspawn.listeners;
 
-import com.yuhtin.fsetspawn.dao.FactionSpawnerDAO;
-import com.yuhtin.fsetspawn.dao.controller.SpawnerController;
+import com.yuhtin.fsetspawn.core.controller.SpawnerController;
+import com.yuhtin.fsetspawn.core.FactionSpawner;
 import com.yuhtin.fsetspawn.enums.SpawnerType;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -24,7 +24,7 @@ public class SpawnerInventoryClick implements Listener {
         if (item == null || item.getType() == Material.AIR) return;
 
         Player player = (Player) event.getWhoClicked();
-        SpawnerController controller = FactionSpawnerDAO.getByUser(player.getName());
+        FactionSpawner controller = SpawnerController.getByUser(player.getName());
         String spawnerName = ChatColor.stripColor(item.getItemMeta().getDisplayName());
         EntityType type = SpawnerType.getByName(spawnerName);
 
@@ -32,13 +32,13 @@ public class SpawnerInventoryClick implements Listener {
         player.sendMessage("§aVocê setou com sucesso o spawn do spawner " + ChatColor.stripColor(item.getItemMeta().getDisplayName()));
         player.closeInventory();
 
-        FactionSpawnerDAO.editing.remove(player.getName());
+        SpawnerController.editing.remove(player.getName());
     }
 
     @EventHandler
     public void closeInventory(InventoryCloseEvent event) {
         if (event.getInventory().getName().equalsIgnoreCase("Setar spawn dos mobs"))
-            FactionSpawnerDAO.editing.remove(event.getPlayer().getName());
+            SpawnerController.editing.remove(event.getPlayer().getName());
     }
 
 }
